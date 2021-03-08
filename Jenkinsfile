@@ -3,6 +3,8 @@ node {
     git 'https://github.com/Rakhee99/clone-check'
   }
   stage ('compile Package') {
-    sh 'mvn package'
+    // get maven home
+    def mvnhome = tool name: 'MAVEN-R', type: 'maven'
+    sh "${mvnhome}/bin/package"
   }
 }
